@@ -9,9 +9,9 @@ function Patients() {
   const [message, setMessage] = useState({ type: "", text: "" });
   
   const [patients, setPatients] = useState([
-    { id: 1, firstName: "Lamin", lastName: "Tamba", address: "Batokunku", phone: "9898982", lastVisited: "2024-02-28" },
-    { id: 2, firstName: "Jainaba", lastName: "Sonko", address: "Kunkujang", phone: "3456780", lastVisited: "2024-02-20" },
-    { id: 3, firstName: "Alieu", lastName: "Jammeh", address: "Abuko", phone: "4567891", lastVisited: "2025-01-15" }
+    { id: 1, firstName: "Lamin", lastName: "Tamba", age: 23, gender: "Male", address: "Batokunku", phone: "9898982", lastVisited: "2024-02-28" },
+    { id: 2, firstName: "Jainaba", lastName: "Sonko", age: 29, gender: "Female", address: "Kunkujang", phone: "3456780", lastVisited: "2024-02-20" },
+    { id: 3, firstName: "Alieu", lastName: "Jammeh", age: 66, gender: "Male", address: "Abuko", phone: "4567891", lastVisited: "2025-01-15" }
   ]);
 
   // Add new patient to the list dynamically
@@ -67,6 +67,8 @@ function Patients() {
               <th className="p-3">Patient No.</th>
               <th className="p-3">First Name</th>
               <th className="p-3">Last Name</th>
+              <th className="p-3">Age</th>
+              <th className="p-3">Gender</th>
               <th className="p-3">Address</th>
               <th className="p-3">Telephone</th>
               <th className="p-3">Last Visited</th>
@@ -80,6 +82,8 @@ function Patients() {
                   <td className="p-3">{index + 1}</td>
                   <td className="p-3">{patient.firstName}</td>
                   <td className="p-3">{patient.lastName}</td>
+                  <td className="p-3">{patient.age}</td>
+                  <td className="p-3">{patient.gender}</td>
                   <td className="p-3">{patient.address}</td>
                   <td className="p-3">{patient.phone}</td>
                   <td className="p-3">{patient.date || patient.lastVisited}</td>
