@@ -6,6 +6,7 @@ function Patients() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [message, setMessage] = useState({ type: "", text: "" });
   
   const [patients, setPatients] = useState([
     { id: 1, firstName: "Lamin", lastName: "Tamba", address: "Batokunku", phone: "9898982", lastVisited: "2024-02-28" },
@@ -16,7 +17,12 @@ function Patients() {
   // Add new patient to the list dynamically
   const addNewPatient = (newPatient) => {
     setPatients((prevPatients) => [...prevPatients, { ...newPatient, patientNo: (prevPatients.length + 1).toString() }]);
+    setMessage({ type: "success", text: "Patient successfully added!" });
     setIsModalOpen(false);
+    setTimeout(() => {
+        setMessage({ type: "", text: "" });
+    }, 3000)
+
   };
 
   // Filtered patient list based on search input
@@ -26,6 +32,14 @@ function Patients() {
 
   return (
     <div className="p-6 mt-16">
+
+        {/* Success/Error Message */}
+      {message.text && (
+        <div className={`mb-4 p-3 text-white text-center rounded-md ${message.type === "success" ? "bg-green-500" : "bg-red-500"}`}>
+          {message.text}
+        </div>
+      )}
+
       {/* Search and Add Button Section */}
       <div className="flex justify-between items-center mb-6">
         
