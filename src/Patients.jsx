@@ -1,15 +1,23 @@
 import React, { useState } from "react";
-import { Search, Eye, Edit, Trash2 } from "lucide-react"; // Importing icons
+import { Search, Eye, Edit, Trash2 } from "lucide-react"; 
+import AddPatient from "./AddPatient";
 
 function Patients() {
-  // Sample patient data (Replace with API data later)
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  
   const [patients, setPatients] = useState([
-    { id: 1, firstName: "John", lastName: "Doe", address: "123 Street", phone: "9876543210", lastVisited: "2024-02-28" },
-    { id: 2, firstName: "Jane", lastName: "Smith", address: "456 Avenue", phone: "9123456780", lastVisited: "2024-02-20" },
-    { id: 3, firstName: "Alice", lastName: "Johnson", address: "789 Road", phone: "9234567891", lastVisited: "2024-01-15" }
+    { id: 1, firstName: "Lamin", lastName: "Tamba", address: "Batokunku", phone: "9898982", lastVisited: "2024-02-28" },
+    { id: 2, firstName: "Jainaba", lastName: "Sonko", address: "Kunkujang", phone: "3456780", lastVisited: "2024-02-20" },
+    { id: 3, firstName: "Alieu", lastName: "Jammeh", address: "Abuko", phone: "4567891", lastVisited: "2025-01-15" }
   ]);
 
-  const [searchTerm, setSearchTerm] = useState("");
+  // Add new patient to the list dynamically
+  const addNewPatient = (newPatient) => {
+    setPatients((prevPatients) => [...prevPatients, { ...newPatient, patientNo: (prevPatients.length + 1).toString() }]);
+    setIsModalOpen(false);
+  };
 
   // Filtered patient list based on search input
   const filteredPatients = patients.filter((patient) =>
@@ -20,7 +28,7 @@ function Patients() {
     <div className="p-6 mt-16">
       {/* Search and Add Button Section */}
       <div className="flex justify-between items-center mb-6">
-        {/* Search Bar with Icon */}
+        
         <div className="relative w-full max-w-sm">
           <Search className="absolute left-3 top-3 text-gray-400" size={20} />
           <input
@@ -32,8 +40,7 @@ function Patients() {
           />
         </div>
 
-        {/* Add Patient Button */}
-        <button className="ml-4 px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition cursor-pointer">
+        <button onClick={() => setIsModalOpen(true)} className="ml-4 px-5 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition cursor-pointer">
           + Add Patient
         </button>
       </div>
@@ -61,7 +68,7 @@ function Patients() {
                   <td className="p-3">{patient.lastName}</td>
                   <td className="p-3">{patient.address}</td>
                   <td className="p-3">{patient.phone}</td>
-                  <td className="p-3">{patient.lastVisited}</td>
+                  <td className="p-3">{patient.date || patient.lastVisited}</td>
                   <td className="p-3 flex justify-center space-x-3">
                     <button className="text-blue-500 hover:text-blue-700 cursor-pointer">
                       <Eye size={20} />
@@ -85,6 +92,9 @@ function Patients() {
           </tbody>
         </table>
       </div>
+
+      {/* Add Patient Modal (Opens when Add Patient button is clicked) */}
+      <AddPatient isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onAddPatient={addNewPatient} />
     </div>
   );
 }
