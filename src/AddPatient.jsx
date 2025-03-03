@@ -56,7 +56,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="text"
               name="patientNo"
-              value={formData.patientNo}
+              value={formData.patientNo || ""}
               onChange={handleChange}
               required
               className="border p-2 rounded"
@@ -66,7 +66,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="text"
               name="firstName"
-              value={formData.firstName}
+              value={formData.firstName || ""}
               onChange={handleChange}
               className="border p-2 rounded"
               required
@@ -76,7 +76,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="text"
               name="lastName"
-              value={formData.lastName}
+              value={formData.lastName || ""}
               onChange={handleChange}
               className="border p-2 rounded"
             />
@@ -86,7 +86,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
               type="number"
               name="name"
               value={formData.name}
-              onChange={handleChange}
+              onChange={handleChange || 0}
               className="border p-2 rounded"
             />
 
@@ -96,7 +96,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
                 <input
                   type="radio"
                   name="gender"
-                  value="male"
+                  value="Male"
                   checked={formData.gender === "male"}
                   onChange={handleChange}
                   className="mr-2"
@@ -108,7 +108,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
                 <input
                   type="radio"
                   name="gender"
-                  value="female"
+                  value="Female"
                   checked={formData.gender === "female"}
                   onChange={handleChange}
                   className="mr-2"
@@ -121,7 +121,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="text"
               name="address"
-              value={formData.address}
+              value={formData.address || ""}
               onChange={handleChange}
               className="border p-2 rounded"
             />
@@ -130,7 +130,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="text"
               name="phone"
-              value={formData.phone}
+              value={formData.phone || 0}
               onChange={handleChange}
               className="border p-2 rounded"
             />
@@ -141,7 +141,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <label className="text-gray-600">Date</label>
             <input
               type="text"
-              value={formData.date}
+              value={formData.date || ""}
               readOnly
               className="border p-2 rounded bg-gray-100"
             />
@@ -149,7 +149,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <label className="text-gray-600">Time</label>
             <input
               type="text"
-              value={formData.time}
+              value={formData.time || ""}
               readOnly
               className="border p-2 rounded bg-gray-100"
             />
@@ -158,7 +158,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="text"
               name="diagnosis"
-              value={formData.diagnosis}
+              value={formData.diagnosis || ""}
               onChange={handleChange}
               className="border p-2 rounded"
             />
@@ -167,7 +167,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="text"
               name="treatment"
-              value={formData.treatment}
+              value={formData.treatment || ""}
               onChange={handleChange}
               className="border p-2 rounded"
             />
@@ -180,15 +180,15 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
               className="border p-2 rounded cursor-pointer"
             >
               <option value="">Select Dentist</option>
-              <option value="Dr. Jobe">Ahmad</option>
-              <option value="Dr. Camara">Musa</option>
+              <option value="Ahmad">Ahmad</option>
+              <option value="Musa">Musa</option>
             </select>
 
             <label className="text-gray-600">Amount Paid</label>
             <input
               type="number"
               name="amountPaid"
-              value={formData.amountPaid}
+              value={formData.amountPaid || 0}
               onChange={handleChange}
               className="border p-2 rounded"
             />

@@ -63,7 +63,7 @@ function AddTreatment({ patient, onClose, onUpdatePatient }) {
           <input 
             type="text" 
             name="diagnosis"
-            value={formData.diagnosis}
+            value={formData.diagnosis || ""}
             onChange={handleChange}
             className="w-full border p-2 rounded mb-4"
           />
@@ -72,16 +72,16 @@ function AddTreatment({ patient, onClose, onUpdatePatient }) {
           <input 
             type="text" 
             name="treatment"
-            value={formData.treatment}
+            value={formData.treatment || ""}
             onChange={handleChange}
             className="w-full border p-2 rounded mb-4"
           />
 
-          <label className="block mb-2">Payment</label>
+          <label className="block mb-2">Payment (GMD)</label>
           <input 
             type="text" 
             name="payment"
-            value={formData.payment}
+            value={formData.payment || 0}
             onChange={handleChange}
             className="w-full border p-2 rounded mb-4"
           />
