@@ -85,8 +85,8 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="number"
               name="name"
-              value={formData.name}
-              onChange={handleChange || 0}
+              value={formData.name ?? ""}
+              onChange={handleChange}
               className="border p-2 rounded"
             />
 
@@ -130,7 +130,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="text"
               name="phone"
-              value={formData.phone || 0}
+              value={formData.phone ?? ""}
               onChange={handleChange}
               className="border p-2 rounded"
             />
@@ -188,7 +188,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <input
               type="number"
               name="amountPaid"
-              value={formData.amountPaid || 0}
+              value={formData.amountPaid ?? ""}
               onChange={handleChange}
               className="border p-2 rounded"
             />

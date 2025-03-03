@@ -81,7 +81,7 @@ function AddTreatment({ patient, onClose, onUpdatePatient }) {
           <input 
             type="text" 
             name="payment"
-            value={formData.payment || 0}
+            value={formData.payment ?? ""}
             onChange={handleChange}
             className="w-full border p-2 rounded mb-4"
           />
