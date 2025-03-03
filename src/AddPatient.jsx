@@ -97,7 +97,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
                   type="radio"
                   name="gender"
                   value="Male"
-                  checked={formData.gender === "male"}
+                  checked={formData.gender === "Male"}
                   onChange={handleChange}
                   className="mr-2"
                 />
@@ -109,7 +109,7 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
                   type="radio"
                   name="gender"
                   value="Female"
-                  checked={formData.gender === "female"}
+                  checked={formData.gender === "Female"}
                   onChange={handleChange}
                   className="mr-2"
                 />

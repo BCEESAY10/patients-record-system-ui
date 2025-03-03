@@ -97,7 +97,7 @@ function PatientInfo({ patient, onClose, onUpdatePatient }) {
         {visits.length > 0 && (
           <div className="mt-6">
             {visits.map((visit, index) => (
-              <div key={index} className="mt-4 p-3 border rounded bg-gray-100">
+              <div key={visit.id} className="mt-4 p-3 border rounded bg-gray-100">
                 <h2 className="text-green-500">{`${index === 0 ? `${index + 2}nd Visit` : index === 1 ? `${index + 2}rd Visit` : `${index + 2}th Visit`}`} </h2>
                 <p><strong>Date:</strong> {visit.date} {"at"} {visit.time}</p>
                 <p><strong>Diagnosis:</strong> {visit.diagnosis}</p>
