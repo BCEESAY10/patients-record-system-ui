@@ -38,7 +38,8 @@ function Patients() {
       diagnosis: "Tooth decay",
       treatment: "Penicillin 500",
       attendedBy: "Ahmad",
-      payment: 4000
+      payment: 4000,
+      visits: []
     },
     {
       id: 3,
@@ -53,7 +54,7 @@ function Patients() {
       diagnosis: "Tooth decay",
       treatment: "Penicillin 500",
       attendedBy: "Ahmad",
-      payment: 3500
+      payment: 3500,
     },
   ]);
 
@@ -68,6 +69,13 @@ function Patients() {
     setTimeout(() => {
       setMessage({ type: "", text: "" });
     }, 3000);
+  };
+
+  //Update patient when a new treatment is added
+  const updatePatient = (updatedPatient) => {
+    setPatients((prevPatients) =>
+      prevPatients.map((p) => (p.id === updatedPatient.id ? updatedPatient : p))
+    );
   };
 
   // Filtered patient list based on search input
@@ -184,8 +192,10 @@ function Patients() {
         <PatientInfo
           patient={selectedPatient}
           onClose={() => setSelectedPatient(null)}
+          onUpdatePatient={updatePatient}
         />
       )}
+
     </div>
   );
 }
