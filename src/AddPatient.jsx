@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 function AddPatient({ isOpen, onClose, onAddPatient }) {
-  if (!isOpen) return null;
 
   const [formData, setFormData] = useState({
     patientNo: "",
@@ -28,6 +27,8 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
       time: now.toLocaleTimeString(),
     }));
   }, [isOpen]);
+
+  if (!isOpen) return null;
 
   // Handle form input change
   const handleChange = (e) => {

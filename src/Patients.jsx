@@ -23,7 +23,7 @@ function Patients() {
       diagnosis: "Tooth decay",
       treatment: "Penicillin 500",
       attendedBy: "Ahmad",
-      payment: 12000
+      amountPaid: 12000
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ function Patients() {
       diagnosis: "Tooth decay",
       treatment: "Penicillin 500",
       attendedBy: "Ahmad",
-      payment: 4000,
+      amountPaid: 4000,
       visits: []
     },
     {
@@ -54,7 +54,7 @@ function Patients() {
       diagnosis: "Tooth decay",
       treatment: "Penicillin 500",
       attendedBy: "Ahmad",
-      payment: 3500,
+      amountPaid: 3500,
     },
   ]);
 
@@ -62,7 +62,7 @@ function Patients() {
   const addNewPatient = (newPatient) => {
     setPatients((prevPatients) => [
       ...prevPatients,
-      { ...newPatient, patientNo: (prevPatients.length + 1).toString() },
+      { ...newPatient, id: (prevPatients.length + 1).toString() },
     ]);
     setMessage({ type: "success", text: "Patient successfully added!" });
     setIsModalOpen(false);
