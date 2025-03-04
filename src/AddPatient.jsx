@@ -84,8 +84,8 @@ function AddPatient({ isOpen, onClose, onAddPatient }) {
             <label className="text-gray-600">Age</label>
             <input
               type="number"
-              name="name"
-              value={formData.name ?? ""}
+              name="age"
+              value={formData.age ?? ""}
               onChange={handleChange}
               className="border p-2 rounded"
             />

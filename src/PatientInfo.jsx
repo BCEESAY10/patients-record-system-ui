@@ -40,7 +40,7 @@ function PatientInfo({ patient, onClose, onUpdatePatient }) {
       doc.text(`Diagnosis: ${visit.diagnosis}`, 20, y + 20);
       doc.text(`Treatment: ${visit.treatment}`, 20, y + 30);
       doc.text(`Attended By: ${visit.attendedBy}`, 20, y + 40);
-      doc.text(`Payment Made: ${visit.payment}`, 20, y + 50);
+      doc.text(`Payment Made: ${visit.amountPaid}`, 20, y + 50);
       y += 60;
     });
 
@@ -89,7 +89,7 @@ function PatientInfo({ patient, onClose, onUpdatePatient }) {
             <p><strong>Diagnosis:</strong> {patient.diagnosis || "Not Recorded"}</p>
             <p><strong>Treatment:</strong> {patient.treatment || "Not Recorded"}</p>
             <p><strong>Attended By:</strong> {patient.attendedBy || "Unknown"}</p>
-            <p><strong>Payment Made:</strong> {patient.payment || "N/A"}</p>
+            <p><strong>Payment Made:</strong> {patient.amountPaid || "N/A"}</p>
           </div>
         </div>
 
